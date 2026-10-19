@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+   html {
+      scroll-behavior: smooth;
+      font-family:
+         "Inter",
+         system-ui,
+         -apple-system,
+         sans-serif;
+   }
+
+   /* Custom Scrollbar */
+   ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+   }
+
+   ::-webkit-scrollbar-track {
+      background: transparent;
+   }
+
+   ::-webkit-scrollbar-thumb {
+      background: rgba(161, 161, 170, 0.25);
+      border-radius: 9999px;
+   }
+
+   ::-webkit-scrollbar-thumb:hover {
+      background: rgba(161, 161, 170, 0.45);
+   }
+
+   .halloween ::-webkit-scrollbar-thumb {
+      background: rgba(249, 115, 22, 0.35);
+   }
+
+   .halloween ::-webkit-scrollbar-thumb:hover {
+      background: rgba(249, 115, 22, 0.65);
+   }
+}
+
+/* Custom Animation Classes matching live production bundle */
+.animate-orb-1 {
+   will-change: transform;
+   backface-visibility: hidden;
+   transform-style: preserve-3d;
+   animation: bg-orb-1 32s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-orb-2 {
+   will-change: transform;
+   backface-visibility: hidden;
+   transform-style: preserve-3d;
+   animation: bg-orb-2 38s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-orb-3 {
+   will-change: transform;
+   backface-visibility: hidden;
+   transform-style: preserve-3d;
+   animation: bg-orb-3 28s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-particle {
+   animation: bg-particle-drift var(--duration, 18s)
+      cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+   will-change: transform, opacity;
+   backface-visibility: hidden;
+}
+
+.animate-water-fill {
+   will-change: background-position;
+   background: repeating-linear-gradient(
+         90deg,
+         #dc2626 0,
+         #ef4444 30px,
+         #f87171,
+         #ef4444,
+         #dc2626 120px
+      )
+      0 0/120px 100%;
+   animation: 2s linear infinite water-stream-flow;
+}
+
+.animate-water-waves {
+   will-change: background-position, opacity;
+   background: repeating-linear-gradient(
+         90deg,
+         #0000 0,
+         #0000 45px,
+         rgba(255, 255, 255, 0.2) 75px,
+         rgba(255, 255, 255, 0.55),
+         rgba(255, 255, 255, 0.2) 105px,
+         #0000 135px,
+         #0000 180px
+      )
+      0 0/180px 100%;
+   animation:
+      2.6s linear infinite water-wave-flow,
+      2.2s ease-in-out infinite water-surface-glimmer;
+}
+
+.animate-water-fill-halloween {
+   will-change: background-position;
+   background: repeating-linear-gradient(
+         90deg,
+         #c2410c 0,
+         #ea580c 25px,
+         #f97316,
+         #fbbf24 75px,
+         #9333ea 95px,
+         #ea580c 120px
+      )
+      0 0/120px 100%;
+   animation: 1.8s linear infinite water-stream-flow;
+}
+
+.animate-water-waves-halloween {
+   will-change: background-position, opacity;
+   background: repeating-linear-gradient(
+         90deg,
+         #0000 0,
+         #0000 40px,
+         rgba(251, 191, 36, 0.3),
+         rgba(255, 255, 255, 0.8),
+         rgba(168, 85, 247, 0.35),
+         #0000 140px,
+         #0000 180px
+      )
+      0 0/180px 100%;
+   animation:
+      2.4s linear infinite water-wave-flow,
+      2s ease-in-out infinite water-surface-glimmer;
+}
+
+.animate-bat-1 {
+   animation: 26s cubic-bezier(0.4, 0, 0.6, 1) infinite bat-glide-1;
+}
+
+.animate-bat-2 {
+   animation: 34s cubic-bezier(0.4, 0, 0.6, 1) 8s infinite bat-glide-2;
+}
+
+.animate-pumpkin-glow {
+   animation: 2.8s ease-in-out infinite pumpkin-pulse;
+}
+
+.animate-ghost {
+   animation: 4s ease-in-out infinite ghost-float;
+}
+
+/* Glassmorphism utilities */
+.backdrop-glass {
+   backdrop-filter: blur(16px) saturate(180%);
+   -webkit-backdrop-filter: blur(16px) saturate(180%);
+}
