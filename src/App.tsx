@@ -134,9 +134,9 @@ export function App() {
             const parsed = JSON.parse(saved);
             if (Array.isArray(parsed) && parsed.length > 0) {
                setCustomVideoIds(parsed.map((v) => v.id));
-               const customIds = new Set(parsed.map((v) => v.youtubeId));
+               const customIds = new Set(parsed.map((v) => v.video_url));
                const filteredInitial = INITIAL_VIDEOS.filter(
-                  (v) => !customIds.has(v.youtubeId),
+                  (v) => !customIds.has(v.video_url),
                );
                setVideos([...parsed, ...filteredInitial]);
             }
